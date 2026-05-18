@@ -2,9 +2,13 @@ import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 import { fileURLToPath, URL } from 'node:url';
 
+const isProd = process.env.NODE_ENV === 'production';
+
 export default defineConfig({
   root: '.',
   publicDir: 'public',
+  // GitHub Pages serves from /repo-name/ subdirectory
+  base: isProd ? '/oticas-coelho-pwa/' : '/',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('src', import.meta.url)),
@@ -31,8 +35,8 @@ export default defineConfig({
         background_color: '#FFFFFF',
         display: 'standalone',
         orientation: 'portrait',
-        start_url: '/',
-        scope: '/',
+        start_url: '/oticas-coelho-pwa/',
+        scope: '/oticas-coelho-pwa/',
         lang: 'pt-BR',
         categories: ['shopping', 'health'],
         icons: [

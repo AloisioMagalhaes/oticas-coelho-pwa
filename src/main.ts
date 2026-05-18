@@ -20,7 +20,7 @@ import '@/components/organisms/footer/app-bottom-nav';
 
 // PWA Service Worker Registration
 if ('serviceWorker' in navigator) {
-  window.addEventListener('async', async () => {
+  window.addEventListener('load', async () => {
     try {
       const { Workbox } = await import('workbox-window');
       const wb = new Workbox('/sw.js');

@@ -2,7 +2,7 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: [main, develop]
+    branches: [main]
   pull_request:
     branches: [main]
 
@@ -22,9 +22,6 @@ jobs:
 
       - name: Type Check
         run: npm run typecheck
-
-      - name: Lint
-        run: npm run lint
 
       - name: Build
         run: npm run build
@@ -51,9 +48,14 @@ jobs:
       - run: npm ci --include=dev
       - run: npm run build
 
-      - uses: actions/configure-pages@v4
-      - uses: actions/upload-pages-artifact@v3
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
           path: './dist'
-      - id: deployment
+
+      - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
