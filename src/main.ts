@@ -38,7 +38,7 @@ const header = document.querySelector('app-header');
 const productGrid = document.querySelector('app-product-grid');
 
 if (productGrid) {
-  productGrid.addEventListener('add-to-cart', ((e: CustomEvent) => {
+  productGrid.addEventListener('add-to-cart', ((_e: CustomEvent) => {
     cartCount++;
     if (header) {
       (header as any).cartCount = cartCount;
