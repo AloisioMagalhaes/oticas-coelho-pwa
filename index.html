@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1B6FF0" />
+  <meta name="description" content="Óticas Coelho — Veja o mundo com estilo! 20 anos no mercado. Óculos de grau, de sol e avaliação visual. Tailândia, Goianésia, Breu Branco, Jacundá e Tucuruí." />
+  <meta name="keywords" content="óculos, ótica, armação, lentes, grau, avaliação visual, Óticas Coelho, Tailândia, Goianésia, Breu Branco, Jacundá, Tucuruí" />
+  <meta name="author" content="Óticas Coelho" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Óticas Coelho — Óculos e Avaliação Visual" />
+  <meta property="og:description" content="Veja o mundo com estilo! 20 anos no mercado. Óculos de grau, de sol e avaliação visual." />
+  <meta property="og:url" content="https://aloisiomagalhaes.github.io/oticas-coelho-pwa/" />
+  <meta property="og:site_name" content="Óticas Coelho" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:image" content="https://aloisiomagalhaes.github.io/oticas-coelho-pwa/icons/icon-512.png" />
+  <meta property="og:image:width" content="512" />
+  <meta property="og:image:height" content="512" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Óticas Coelho — Óculos e Avaliação Visual" />
+  <meta name="twitter:description" content="Veja o mundo com estilo! 20 anos no mercado." />
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="icons/favicon.svg" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+
+  <title>Óticas Coelho — Óculos e Avaliação Visual | 20 Anos no Mercado</title>
+
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="manifest/manifest.json" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Optometric",
+    "name": "Óticas Coelho",
+    "description": "Óculos de grau, de sol e avaliação visual. 20 anos no mercado.",
+    "url": "https://aloisiomagalhaes.github.io/oticas-coelho-pwa/",
+    "telephone": "+55-94-XXXX-XXXX",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Tailândia",
+      "addressRegion": "PA",
+      "addressCountry": "BR"
+    },
+    "priceRange": "$$",
+    "openingHours": ["Mo-Sa 08:00-18:00"],
+    "sameAs": [
+      "https://www.instagram.com/oticascoelhooficial",
+      "https://www.facebook.com/oticascoelhooficial",
+      "https://www.threads.com/@oticascoelhooficial"
+    ]
+  }
+  </script>
+
+  <style>
+    /* ============================================
+       DESIGN TOKENS (inline for zero-dependency)
+       ============================================ */
+    :root {
+      --color-primary-50: #E8F0FE;
+      --color-primary-100: #C5D9FC;
+      --color-primary-200: #9EBEFA;
+      --color-primary-300: #74A1F5;
+      --color-primary-400: #5289F0;
+      --color-primary-500: #1B6FF0;
+      --color-primary-600: #1559C2;
+      --color-primary-700: #0F4496;
+      --color-primary-800: #0A316B;
+      --color-primary-900: #061F42;
+      --color-secondary-50: #FFF8E6;
+      --color-secondary-100: #FFECB3;
+      --color-secondary-200: #FFE080;
+      --color-secondary-300: #FFD54D;
+      --color-secondary-400: #FFC926;
+      --color-secondary-500: #F5A623;
+      --color-secondary-600: #D48E1C;
+      --color-secondary-700: #B37715;
+      --color-success-500: #4CAF50;
+      --color-success-700: #388E3C;
+      --color-error-500: #F44336;
+      --color-error-700: #D32F2F;
+      --color-gray-0: #FFFFFF;
+      --color-gray-50: #F8F9FA;
+      --color-gray-100: #F1F3F5;
+      --color-gray-200: #E9ECEF;
+      --color-gray-300: #DEE2E6;
+      --color-gray-400: #ADB5BD;
+      --color-gray-500: #868E96;
+      --color-gray-600: #6C757D;
+      --color-gray-700: #495057;
+      --color-gray-800: #343A40;
+      --color-gray-900: #212529;
+      --color-gray-1000: #0D1117;
+      --font-family-heading: 'Poppins', 'Inter', system-ui, sans-serif;
+      --font-family-body: 'Inter', 'Open Sans', system-ui, sans-serif;
+      --font-family-accent: 'Playfair Display', Georgia, serif;
+      --font-size-xs: 0.75rem;
+      --font-size-sm: 0.875rem;
+      --font-size-base: 1rem;
+      --font-size-md: 1.125rem;
+      --font-size-lg: 1.25rem;
+      --font-size-xl: 1.5rem;
+      --font-size-2xl: 1.875rem;
+      --font-size-3xl: 2.25rem;
+      --font-size-4xl: 3rem;
+      --font-weight-regular: 400;
+      --font-weight-medium: 500;
+      --font-weight-semibold: 600;
+      --font-weight-bold: 700;
+      --font-weight-extrabold: 800;
+      --line-height-tight: 1.1;
+      --line-height-heading: 1.25;
+      --line-height-body: 1.6;
+      --line-height-relaxed: 1.75;
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.25rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-20: 5rem;
+      --border-radius-sm: 0.25rem;
+      --border-radius-md: 0.5rem;
+      --border-radius-lg: 0.75rem;
+      --border-radius-xl: 1rem;
+      --border-radius-2xl: 1.5rem;
+      --border-radius-full: 9999px;
+      --shadow-xs: 0 1px 2px rgba(0,0,0,0.05);
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.06);
+      --shadow-lg: 0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05);
+      --shadow-xl: 0 20px 25px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.04);
+      --shadow-secondary: 0 4px 14px rgba(245,166,35,0.25);
+      --transition-fast: 150ms ease;
+      --transition-base: 250ms ease;
+      --header-height: 64px;
+      --header-height-mobile: 56px;
+      --bottom-nav-height: 60px;
+      --container-xl: 1280px;
+      --z-sticky: 200;
+      --z-fixed: 300;
+      --z-toast: 800;
+    }
+
+    /* ============================================
+       RESET & BASE
+       ============================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: var(--font-family-body);
+      font-size: var(--font-size-base);
+      line-height: var(--line-height-body);
+      color: var(--color-gray-900);
+      background: var(--color-gray-0);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--color-primary-600); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    ul, ol { list-style: none; }
+
+    /* Focus visible */
+    :focus-visible { outline: 3px solid var(--color-primary-500); outline-offset: 2px; border-radius: var(--border-radius-sm); }
+    :focus:not(:focus-visible) { outline: none; }
+
+    /* Screen reader only */
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+    /* Skip link */
+    .skip-link { position: absolute; top: -100%; left: 1rem; z-index: 900; padding: .5rem 1rem; background: var(--color-primary-600); color: var(--color-gray-0); border-radius: var(--border-radius-md); font-weight: var(--font-weight-semibold); }
+    .skip-link:focus { top: 1rem; }
+
+    /* Container */
+    .container { width: 100%; max-width: var(--container-xl); margin-inline: auto; padding-inline: var(--space-4); }
+    @media (min-width: 768px) { .container { padding-inline: var(--space-6); } }
+    @media (min-width: 1024px) { .container { padding-inline: var(--space-8); } }
+
+    /* ============================================
+       HEADER
+       ============================================ */
+    .site-header {
+      position: sticky; top: 0; z-index: var(--z-sticky);
+      background: var(--color-gray-0);
+      box-shadow: var(--shadow-sm);
+    }
+    .header-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: var(--header-height-mobile);
+      max-width: var(--container-xl); margin-inline: auto; padding-inline: var(--space-4);
+    }
+    @media (min-width: 768px) { .header-inner { height: var(--header-height); padding-inline: var(--space-6); } }
+    .logo { display: flex; align-items: center; gap: var(--space-2); text-decoration: none; }
+    .logo:hover { text-decoration: none; }
+    .logo-icon {
+      width: 36px; height: 36px;
+      background: linear-gradient(135deg, var(--color-primary-500), var(--color-primary-700));
+      border-radius: var(--border-radius-md);
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-weight: var(--font-weight-bold); font-size: var(--font-size-lg);
+    }
+    .logo-name { font-family: var(--font-family-heading); font-size: var(--font-size-lg); font-weight: var(--font-weight-bold); color: var(--color-primary-600); line-height: 1.1; }
+    .logo-tagline { font-size: var(--font-size-xs); color: var(--color-gray-500); font-weight: var(--font-weight-medium); }
+    .header-actions { display: flex; align-items: center; gap: var(--space-1); }
+    .icon-btn {
+      width: 40px; height: 40px; border-radius: var(--border-radius-full);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--color-gray-700); transition: background var(--transition-fast);
+    }
+    .icon-btn:hover { background: var(--color-gray-100); }
+    .icon-btn svg { width: 22px; height: 22px; }
+
+    /* ============================================
+       HERO
+       ============================================ */
+    .hero {
+      background: linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-primary-800) 50%, var(--color-primary-900) 100%);
+      color: var(--color-gray-0);
+      padding: var(--space-12) var(--space-4);
+    }
+    @media (min-width: 768px) { .hero { padding: var(--space-16) var(--space-8); } }
+    .hero-inner {
+      max-width: var(--container-xl); margin-inline: auto;
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+    }
+    @media (min-width: 768px) { .hero-inner { flex-direction: row; text-align: left; gap: var(--space-12); } }
+    .hero-content { flex: 1; }
+    .hero-badge {
+      display: inline-flex; align-items: center;
+      background: rgba(255,255,255,0.15); backdrop-filter: blur(10px);
+      padding: var(--space-1) var(--space-3); border-radius: var(--border-radius-full);
+      font-size: var(--font-size-sm); font-weight: var(--font-weight-medium);
+      margin-bottom: var(--space-4);
+    }
+    .hero-badge::before { content: "★"; color: var(--color-secondary-400); margin-right: 4px; }
+    .hero-title {
+      font-family: var(--font-family-heading);
+      font-size: var(--font-size-3xl); font-weight: var(--font-weight-extrabold);
+      line-height: var(--line-height-tight); margin-bottom: var(--space-4);
+    }
+    @media (min-width: 768px) { .hero-title { font-size: var(--font-size-4xl); } }
+    .hero-title .highlight { color: var(--color-secondary-400); font-family: var(--font-family-accent); font-style: italic; }
+    .hero-description { font-size: var(--font-size-base); opacity: 0.9; margin-bottom: var(--space-6); max-width: 500px; line-height: var(--line-height-relaxed); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); justify-content: center; }
+    @media (min-width: 768px) { .hero-actions { justify-content: flex-start; } }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      background: var(--color-secondary-500); color: var(--color-gray-900);
+      padding: var(--space-3) var(--space-6); border-radius: var(--border-radius-full);
+      font-weight: var(--font-weight-semibold); font-size: var(--font-size-sm);
+      text-decoration: none; transition: all var(--transition-base);
+      box-shadow: var(--shadow-secondary);
+    }
+    .btn-primary:hover { background: var(--color-secondary-400); transform: translateY(-2px); text-decoration: none; }
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      background: rgba(255,255,255,0.1); color: var(--color-gray-0);
+      padding: var(--space-3) var(--space-6); border-radius: var(--border-radius-full);
+      font-weight: var(--font-weight-medium); font-size: var(--font-size-sm);
+      text-decoration: none; border: 1px solid rgba(255,255,255,0.3);
+      transition: all var(--transition-base); backdrop-filter: blur(10px);
+    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.2); text-decoration: none; }
+    .hero-stats { display: flex; gap: var(--space-8); margin-top: var(--space-8); padding-top: var(--space-6); border-top: 1px solid rgba(255,255,255,0.15); justify-content: center; }
+    @media (min-width: 768px) { .hero-stats { justify-content: flex-start; } }
+    .stat { text-align: center; }
+    @media (min-width: 768px) { .stat { text-align: left; } }
+    .stat-value { font-family: var(--font-family-heading); font-size: var(--font-size-2xl); font-weight: var(--font-weight-bold); color: var(--color-secondary-400); }
+    .stat-label { font-size: var(--font-size-xs); opacity: 0.8; }
+
+    /* ============================================
+       PRODUCTS
+       ============================================ */
+    .products-section { background: var(--color-gray-50); padding-block: var(--space-12); }
+    @media (min-width: 768px) { .products-section { padding-block: var(--space-16); } }
+    .section-header { text-align: center; margin-bottom: var(--space-8); }
+    .section-title { font-family: var(--font-family-heading); font-size: var(--font-size-2xl); font-weight: var(--font-weight-bold); color: var(--color-gray-900); margin-bottom: var(--space-2); }
+    @media (min-width: 768px) { .section-title { font-size: var(--font-size-3xl); } }
+    .section-subtitle { font-size: var(--font-size-base); color: var(--color-gray-600); }
+    .categories { display: flex; gap: var(--space-2); overflow-x: auto; padding-block: var(--space-2); margin-bottom: var(--space-6); -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+    .categories::-webkit-scrollbar { display: none; }
+    .category-btn {
+      flex-shrink: 0; padding: var(--space-2) var(--space-4);
+      border-radius: var(--border-radius-full); font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-medium); border: 2px solid var(--color-gray-200);
+      background: var(--color-gray-0); color: var(--color-gray-700);
+      cursor: pointer; transition: all var(--transition-fast);
+    }
+    .category-btn:hover { border-color: var(--color-primary-300); color: var(--color-primary-600); }
+    .category-btn.active { background: var(--color-primary-600); border-color: var(--color-primary-600); color: var(--color-gray-0); }
+    .products-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-4); }
+    @media (min-width: 768px) { .products-grid { grid-template-columns: repeat(3, 1fr); gap: var(--space-6); } }
+    .product-card {
+      background: var(--color-gray-0); border-radius: var(--border-radius-xl);
+      overflow: hidden; box-shadow: var(--shadow-sm); transition: all var(--transition-base); position: relative;
+    }
+    .product-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+    .product-image {
+      aspect-ratio: 1; background: linear-gradient(135deg, var(--color-gray-100), var(--color-gray-200));
+      display: flex; align-items: center; justify-content: center; position: relative;
+    }
+    .product-image svg { width: 64px; height: 64px; color: var(--color-gray-400); }
+    .product-badge {
+      position: absolute; top: var(--space-2); left: var(--space-2);
+      padding: var(--space-1) var(--space-2); border-radius: var(--border-radius-sm);
+      font-size: var(--font-size-xs); font-weight: var(--font-weight-bold);
+    }
+    .badge-discount { background: var(--color-error-500); color: var(--color-gray-0); }
+    .badge-new { background: var(--color-success-500); color: var(--color-gray-0); }
+    .badge-bestseller { background: var(--color-secondary-500); color: var(--color-gray-900); }
+    .product-info { padding: var(--space-3); }
+    .product-category { font-size: var(--font-size-xs); color: var(--color-gray-500); font-weight: var(--font-weight-medium); text-transform: uppercase; letter-spacing: 0.05em; }
+    .product-name { font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); color: var(--color-gray-900); margin-block: var(--space-1); line-height: var(--line-height-heading); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    @media (min-width: 768px) { .product-name { font-size: var(--font-size-base); } }
+    .product-rating { display: flex; align-items: center; gap: var(--space-1); margin-bottom: var(--space-2); }
+    .stars { color: var(--color-secondary-500); font-size: var(--font-size-xs); }
+    .rating-count { font-size: var(--font-size-xs); color: var(--color-gray-500); }
+    .product-price { display: flex; align-items: baseline; gap: var(--space-2); }
+    .price-current { font-size: var(--font-size-md); font-weight: var(--font-weight-bold); color: var(--color-primary-600); }
+    @media (min-width: 768px) { .price-current { font-size: var(--font-size-lg); } }
+    .price-original { font-size: var(--font-size-xs); color: var(--color-gray-400); text-decoration: line-through; }
+    .price-installment { font-size: var(--font-size-xs); color: var(--color-gray-600); margin-top: var(--space-1); }
+    .btn-add-cart {
+      width: 100%; padding: var(--space-2); margin-top: var(--space-2);
+      background: var(--color-primary-600); color: var(--color-gray-0);
+      border: none; border-radius: var(--border-radius-md);
+      font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold);
+      cursor: pointer; transition: background var(--transition-fast);
+    }
+    .btn-add-cart:hover { background: var(--color-primary-700); }
+
+    /* ============================================
+       TESTIMONIALS
+       ============================================ */
+    .testimonials-section { background: var(--color-gray-0); padding-block: var(--space-12); }
+    @media (min-width: 768px) { .testimonials-section { padding-block: var(--space-16); } }
+    .testimonials-grid { display: grid; gap: var(--space-4); }
+    @media (min-width: 768px) { .testimonials-grid { grid-template-columns: repeat(3, 1fr); gap: var(--space-6); } }
+    .testimonial-card {
+      background: var(--color-gray-50); border-radius: var(--border-radius-xl);
+      padding: var(--space-6); border: 1px solid var(--color-gray-200);
+      transition: all var(--transition-base);
+    }
+    .testimonial-card:hover { box-shadow: var(--shadow-md); border-color: var(--color-primary-200); }
+    .testimonial-stars { color: var(--color-secondary-500); font-size: var(--font-size-md); margin-bottom: var(--space-3); }
+    .testimonial-text { font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-gray-700); margin-bottom: var(--space-4); font-style: italic; }
+    .testimonial-author { display: flex; align-items: center; gap: var(--space-3); }
+    .author-avatar {
+      width: 40px; height: 40px; border-radius: var(--border-radius-full);
+      background: linear-gradient(135deg, var(--color-primary-500), var(--color-primary-700));
+      color: var(--color-gray-0); display: flex; align-items: center; justify-content: center;
+      font-weight: var(--font-weight-bold); font-size: var(--font-size-sm);
+    }
+    .author-name { font-weight: var(--font-weight-semibold); font-size: var(--font-size-sm); color: var(--color-gray-900); }
+    .author-location { font-size: var(--font-size-xs); color: var(--color-gray-500); }
+
+    /* ============================================
+       FOOTER
+       ============================================ */
+    .site-footer { background: var(--color-gray-900); color: var(--color-gray-300); padding: var(--space-12) var(--space-4); }
+    @media (min-width: 768px) { .site-footer { padding: var(--space-16) var(--space-8); } }
+    .footer-grid { display: grid; gap: var(--space-8); margin-bottom: var(--space-8); }
+    @media (min-width: 768px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr 1fr; gap: var(--space-12); } }
+    .footer-brand { max-width: 300px; }
+    .footer-logo { display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-4); }
+    .footer-logo-icon {
+      width: 32px; height: 32px;
+      background: linear-gradient(135deg, var(--color-primary-500), var(--color-primary-700));
+      border-radius: var(--border-radius-md);
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-weight: var(--font-weight-bold); font-size: var(--font-size-md);
+    }
+    .footer-logo-text { font-family: var(--font-family-heading); font-size: var(--font-size-lg); font-weight: var(--font-weight-bold); color: var(--color-gray-0); }
+    .footer-description { font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); color: var(--color-gray-400); margin-bottom: var(--space-4); }
+    .footer-social { display: flex; gap: var(--space-3); }
+    .social-link {
+      width: 36px; height: 36px; border-radius: var(--border-radius-full);
+      background: var(--color-gray-800); display: flex; align-items: center; justify-content: center;
+      color: var(--color-gray-400); transition: all var(--transition-fast); text-decoration: none;
+    }
+    .social-link:hover { background: var(--color-primary-600); color: var(--color-gray-0); text-decoration: none; }
+    .social-link svg { width: 18px; height: 18px; }
+    .footer-column h3 { font-family: var(--font-family-heading); font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); color: var(--color-gray-0); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-4); }
+    .footer-links { display: flex; flex-direction: column; gap: var(--space-2); }
+    .footer-links a { font-size: var(--font-size-sm); color: var(--color-gray-400); text-decoration: none; transition: color var(--transition-fast); }
+    .footer-links a:hover { color: var(--color-secondary-400); text-decoration: none; }
+    .footer-contact-item { display: flex; align-items: flex-start; gap: var(--space-2); font-size: var(--font-size-sm); color: var(--color-gray-400); margin-bottom: var(--space-2); }
+    .footer-contact-item svg { width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; color: var(--color-primary-400); }
+    .footer-bottom { padding-top: var(--space-6); border-top: 1px solid var(--color-gray-800); display: flex; flex-direction: column; align-items: center; gap: var(--space-2); text-align: center; }
+    @media (min-width: 768px) { .footer-bottom { flex-direction: row; justify-content: space-between; } }
+    .footer-copyright { font-size: var(--font-size-xs); color: var(--color-gray-500); }
+    .footer-legal { display: flex; gap: var(--space-4); }
+    .footer-legal a { font-size: var(--font-size-xs); color: var(--color-gray-500); text-decoration: none; }
+    .footer-legal a:hover { color: var(--color-gray-300); }
+
+    /* ============================================
+       BOTTOM NAV (mobile)
+       ============================================ */
+    .bottom-nav {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: var(--z-fixed);
+      background: var(--color-gray-0); box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    }
+    @media (min-width: 768px) { .bottom-nav { display: none; } }
+    .bottom-nav-inner { display: flex; justify-content: space-around; align-items: center; height: var(--bottom-nav-height); }
+    .nav-item { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: var(--space-1) var(--space-3); color: var(--color-gray-500); text-decoration: none; font-size: var(--font-size-xs); font-weight: var(--font-weight-medium); transition: color var(--transition-fast); }
+    .nav-item:hover, .nav-item.active { color: var(--color-primary-600); text-decoration: none; }
+    .nav-item svg { width: 22px; height: 22px; }
+
+    /* ============================================
+       TOAST
+       ============================================ */
+    .toast {
+      position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%);
+      background: var(--color-gray-900); color: var(--color-gray-0);
+      padding: var(--space-3) var(--space-6); border-radius: var(--border-radius-full);
+      font-size: var(--font-size-sm); font-weight: var(--font-weight-medium);
+      box-shadow: var(--shadow-lg); z-index: var(--z-toast);
+      animation: slideUp .3s ease forwards; pointer-events: none;
+    }
+    @keyframes slideUp { from { opacity: 0; transform: translateX(-50%) translateY(20px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
+
+    /* ============================================
+       ANIMATIONS
+       ============================================ */
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-fade-in { animation: fadeIn .5s ease forwards; }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+    }
+
+    /* Spacer for bottom nav */
+    body { padding-bottom: var(--bottom-nav-height); }
+    @media (min-width: 768px) { body { padding-bottom: 0; } }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+
+  <!-- ============================================
+       HEADER
+       ============================================ -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a href="/oticas-coelho-pwa/" class="logo" aria-label="Óticas Coelho — Página inicial">
+        <div class="logo-icon" aria-hidden="true">Ó</div>
+        <div>
+          <div class="logo-name">Óticas Coelho</div>
+          <div class="logo-tagline">Veja o mundo com estilo</div>
+        </div>
+      </a>
+      <div class="header-actions">
+        <button class="icon-btn" aria-label="Buscar" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" /></svg>
+        </button>
+        <a href="https://wa.me/5594000000000" class="icon-btn" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" role="main" tabindex="-1">
+
+    <!-- ============================================
+         HERO
+         ============================================ -->
+    <section class="hero" aria-label="Destaque">
+      <div class="hero-inner container">
+        <div class="hero-content animate-fade-in">
+          <span class="hero-badge">20 anos no mercado</span>
+          <h1 class="hero-title">
+            Veja o mundo com<br>
+            <span class="highlight">estilo</span>
+          </h1>
+          <p class="hero-description">
+            Óculos de grau, de sol e avaliação visual com qualidade e preço justo.
+            5 unidades no Pará e Tocantins para melhor atender você.
+          </p>
+          <div class="hero-actions">
+            <a href="#produtos" class="btn-primary" role="button">
+              Ver Catálogo
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/></svg>
+            </a>
+            <a href="https://wa.me/5594000000000" class="btn-secondary" role="button" target="_blank" rel="noopener noreferrer">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.812 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/></svg>
+              Fale Conosco
+            </a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat"><div class="stat-value">20+</div><div class="stat-label">Anos de mercado</div></div>
+            <div class="stat"><div class="stat-value">5</div><div class="stat-label">Unidades</div></div>
+            <div class="stat"><div class="stat-value">14K+</div><div class="stat-label">Seguidores</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         PRODUCTS
+         ============================================ -->
+    <section class="products-section" id="produtos" aria-label="Produtos">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Nossos Produtos</h2>
+          <p class="section-subtitle">Encontre o óculos perfeito para você</p>
+        </div>
+
+        <div class="categories" role="tablist" aria-label="Filtrar por categoria">
+          <button class="category-btn active" role="tab" aria-selected="true" data-category="Todos" type="button">Todos</button>
+          <button class="category-btn" role="tab" aria-selected="false" data-category="Armações" type="button">Armações</button>
+          <button class="category-btn" role="tab" aria-selected="false" data-category="Óculos de Sol" type="button">Óculos de Sol</button>
+          <button class="category-btn" role="tab" aria-selected="false" data-category="Lentes" type="button">Lentes</button>
+          <button class="category-btn" role="tab" aria-selected="false" data-category="Infantil" type="button">Infantil</button>
+        </div>
+
+        <div class="products-grid" role="tabpanel" id="products-grid">
+          <!-- Products rendered by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         TESTIMONIALS
+         ============================================ -->
+    <section class="testimonials-section" aria-label="Depoimentos de clientes">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">O que nossos clientes dizem</h2>
+          <p class="section-subtitle">A satisfação de quem confia na Óticas Coelho há 20 anos</p>
+        </div>
+        <div class="testimonials-grid">
+          <article class="testimonial-card">
+            <div class="testimonial-stars" aria-label="5 de 5 estrelas" role="img">★★★★★</div>
+            <p class="testimonial-text">"Atendimento excelente! Fiz meu exame de vista e escolhi uma armação linda. Preço justo e qualidade top."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar" aria-hidden="true">MS</div>
+              <div><div class="author-name">Maria Silva</div><div class="author-location">Tailândia - PA</div></div>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <div class="testimonial-stars" aria-label="5 de 5 estrelas" role="img">★★★★★</div>
+            <p class="testimonial-text">"Comprei óculos de sol polarizado e estou muito satisfeito. Entrega rápida e ótima qualidade."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar" aria-hidden="true">JS</div>
+              <div><div class="author-name">João Santos</div><div class="author-location">Tucuruí - PA</div></div>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <div class="testimonial-stars" aria-label="5 de 5 estrelas" role="img">★★★★★</div>
+            <p class="testimonial-text">"A Óticas Coelho é referência na região! Sempre que preciso de óculos de grau, é lá que compro."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar" aria-hidden="true">AO</div>
+              <div><div class="author-name">Ana Oliveira</div><div class="author-location">Goianésia - TO</div></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <div class="footer-logo-icon" aria-hidden="true">Ó</div>
+            <span class="footer-logo-text">Óticas Coelho</span>
+          </div>
+          <p class="footer-description">20 anos trazendo visão e estilo para você. Óculos de grau, de sol e avaliação visual com qualidade e preço justo.</p>
+          <div class="footer-social" aria-label="Redes sociais">
+            <a href="https://www.instagram.com/oticascoelhooficial" class="social-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+            <a href="https://www.facebook.com/oticascoelhooficial" class="social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a href="https://wa.me/5594000000000" class="social-link" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3>Navegação</h3>
+          <nav class="footer-links" aria-label="Links do rodapé">
+            <a href="/oticas-coelho-pwa/">Início</a>
+            <a href="#produtos">Produtos</a>
+            <a href="#sobre">Sobre Nós</a>
+            <a href="#contato">Contato</a>
+          </nav>
+        </div>
+        <div class="footer-column">
+          <h3>Categorias</h3>
+          <nav class="footer-links" aria-label="Categorias de produtos">
+            <a href="#produtos">Armações</a>
+            <a href="#produtos">Óculos de Sol</a>
+            <a href="#produtos">Lentes de Contato</a>
+            <a href="#produtos">Acessórios</a>
+          </nav>
+        </div>
+        <div class="footer-column">
+          <h3>Contato</h3>
+          <div>
+            <div class="footer-contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" /></svg>
+              <span>Tailândia - PA<br>Goianésia - TO<br>Breu Branco, Jacundá, Tucuruí</span>
+            </div>
+            <div class="footer-contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" /></svg>
+              <span>(94) XXXX-XXXX</span>
+            </div>
+            <div class="footer-contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" /></svg>
+              <span>Seg - Sáb: 8h às 18h</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">© 2025 Óticas Coelho. Todos os direitos reservados.</p>
+        <div class="footer-legal">
+          <a href="#privacidade">Política de Privacidade</a>
+          <a href="#termos">Termos de Uso</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================
+       BOTTOM NAV (mobile)
+       ============================================ -->
+  <nav class="bottom-nav" role="navigation" aria-label="Navegação mobile">
+    <div class="bottom-nav-inner">
+      <a href="/oticas-coelho-pwa/" class="nav-item active" aria-current="page">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" /></svg>
+        <span>Início</span>
+      </a>
+      <a href="#produtos" class="nav-item">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /></svg>
+        <span>Produtos</span>
+      </a>
+      <a href="https://wa.me/5594000000000" class="nav-item" target="_blank" rel="noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span>WhatsApp</span>
+      </a>
+      <a href="#sobre" class="nav-item">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" /></svg>
+        <span>Sobre</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ============================================
+       JAVASCRIPT
+       ============================================ -->
+  <script>
+    // Product data
+    const PRODUCTS = [
+      { id: 1, name: 'Armação Aviador Clássico', category: 'Armações', price: 149.90, originalPrice: 199.90, badge: '-25%', badgeType: 'discount', rating: 4.8, reviews: 124 },
+      { id: 2, name: 'Óculos de Sol Polarizado', category: 'Óculos de Sol', price: 189.90, badge: 'Novo', badgeType: 'new', rating: 4.9, reviews: 89 },
+      { id: 3, name: 'Armação Redonda Vintage', category: 'Armações', price: 129.90, originalPrice: 169.90, badge: '-24%', badgeType: 'discount', rating: 4.7, reviews: 67 },
+      { id: 4, name: 'Lente Anti-Reflexo Premium', category: 'Lentes', price: 299.90, rating: 4.9, reviews: 203 },
+      { id: 5, name: 'Armação Retangular Moderna', category: 'Armações', price: 169.90, badge: 'Mais Vendido', badgeType: 'bestseller', rating: 4.8, reviews: 156 },
+      { id: 6, name: 'Óculos de Grau Infantil', category: 'Infantil', price: 99.90, originalPrice: 139.90, badge: '-29%', badgeType: 'discount', rating: 4.6, reviews: 45 },
+    ];
+
+    function formatPrice(price) {
+      return price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    }
+
+    function getInstallment(price) {
+      return 'ou 3x de ' + formatPrice(price / 3);
+    }
+
+    function renderProducts(category) {
+      const grid = document.getElementById('products-grid');
+      const filtered = category === 'Todos' ? PRODUCTS : PRODUCTS.filter(p => p.category === category);
+
+      grid.innerHTML = filtered.map(p => `
+        <article class="product-card" aria-label="${p.name}">
+          <div class="product-image">
+            ${p.badge ? `<span class="product-badge badge-${p.badgeType}">${p.badge}</span>` : ''}
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /></svg>
+          </div>
+          <div class="product-info">
+            <span class="product-category">${p.category}</span>
+            <h3 class="product-name">${p.name}</h3>
+            <div class="product-rating" aria-label="Avaliação: ${p.rating} de 5">
+              <span class="stars" aria-hidden="true">${'★'.repeat(Math.floor(p.rating))}${'☆'.repeat(5 - Math.floor(p.rating))}</span>
+              <span class="rating-count">(${p.reviews})</span>
+            </div>
+            <div class="product-price">
+              <span class="price-current">${formatPrice(p.price)}</span>
+              ${p.originalPrice ? `<span class="price-original">${formatPrice(p.originalPrice)}</span>` : ''}
+            </div>
+            <p class="price-installment">${getInstallment(p.price)}</p>
+          </div>
+          <button class="btn-add-cart" onclick="addToCart(${p.id})" aria-label="Adicionar ${p.name} ao carrinho" type="button">Adicionar</button>
+        </article>
+      `).join('');
+    }
+
+    // Category filter
+    document.querySelectorAll('.category-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.category-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+        this.classList.add('active');
+        this.setAttribute('aria-selected', 'true');
+        renderProducts(this.dataset.category);
+      });
+    });
+
+    // Add to cart
+    let cartCount = 0;
+    function addToCart(id) {
+      cartCount++;
+      const product = PRODUCTS.find(p => p.id === id);
+      showToast(product ? product.name + ' adicionado ao carrinho!' : 'Produto adicionado!');
+    }
+
+    function showToast(message) {
+      const existing = document.querySelector('.toast');
+      if (existing) existing.remove();
+      const toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.setAttribute('role', 'status');
+      toast.setAttribute('aria-live', 'polite');
+      toast.textContent = message;
+      document.body.appendChild(toast);
+      setTimeout(() => toast.remove(), 3000);
+    }
+
+    // Smooth scroll
+    document.addEventListener('click', function(e) {
+      const anchor = e.target.closest('a[href^="#"]');
+      if (anchor) {
+        e.preventDefault();
+        const id = anchor.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if (el) { el.scrollIntoView({ behavior: 'smooth' }); el.focus(); }
+      }
+    });
+
+    // Initial render
+    renderProducts('Todos');
+
+    // PWA install prompt
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', function(e) {
+      e.preventDefault();
+      deferredPrompt = e;
+    });
+
+    console.log('🕶️ Óticas Coelho PWA loaded');
+  </script>
+</body>
+</html>
