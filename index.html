@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#1B6FF0" />
+  <meta name="description" content="Óticas Coelho — Veja o mundo com estilo! 20 anos no mercado. Óculos de grau, de sol e avaliação visual. Tailândia, Goianésia, Breu Branco, Jacundá e Tucuruí." />
+  <meta name="keywords" content="óculos, ótica, armação, lentes, grau, avaliação visual, Óticas Coelho, Tailândia, Goianésia, Breu Branco, Jacundá, Tucuruí" />
+  <meta name="author" content="Óticas Coelho" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Óticas Coelho — Óculos e Avaliação Visual" />
+  <meta property="og:description" content="Veja o mundo com estilo! 20 anos no mercado. Óculos de grau, de sol e avaliação visual." />
+  <meta property="og:url" content="https://oticascoelho.com.br" />
+  <meta property="og:site_name" content="Óticas Coelho" />
+  <meta property="og:locale" content="pt_BR" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Óticas Coelho — Óculos e Avaliação Visual" />
+  <meta name="twitter:description" content="Veja o mundo com estilo! 20 anos no mercado." />
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg" />
+  <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+
+  <title>Óticas Coelho — Óculos e Avaliação Visual | 20 Anos no Mercado</title>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Optometric",
+    "name": "Óticas Coelho",
+    "description": "Óculos de grau, de sol e avaliação visual. 20 anos no mercado.",
+    "url": "https://oticascoelho.com.br",
+    "telephone": "+55-94-XXXX-XXXX",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Tailândia",
+      "addressRegion": "PA",
+      "addressCountry": "BR"
+    },
+    "priceRange": "$$",
+    "openingHours": ["Mo-Sa 08:00-18:00"],
+    "sameAs": [
+      "https://www.instagram.com/oticascoelhooficial",
+      "https://www.facebook.com/oticascoelhooficial",
+      "https://www.threads.com/@oticascoelhooficial"
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="/src/design-tokens/base.css" />
+  <link rel="stylesheet" href="/src/styles/global.css" />
+</head>
+<body>
+  <app-header></app-header>
+  <main id="main-content" role="main" tabindex="-1">
+    <app-hero-banner></app-hero-banner>
+    <app-product-grid></app-product-grid>
+    <app-testimonials></app-testimonials>
+  </main>
+  <app-footer></app-footer>
+  <app-bottom-nav></app-bottom-nav>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

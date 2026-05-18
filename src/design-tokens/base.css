@@ -1,0 +1,248 @@
+/**
+ * Óticas Coelho — Design Tokens
+ * 
+ * Pesquisa de marca baseada em:
+ * - Instagram @oticascoelhooficial (14K followers, 20 anos no mercado)
+ * - Presença regional: Tailândia, Goianésia, Breu Branco, Jacundá, Tucuruí (PA/TO)
+ * - Posicionamento: óculos popular com estilo, avaliação visual
+ * - Público: classe C/D, famílias, todas as idades
+ * 
+ * Paleta: Azul confiança + Dourado elegância + Branco limpeza
+ * Justificativa: azul transmite confiança (saúde visual), 
+ * dourado agrega valor percebido (elegância acessível)
+ */
+
+:root {
+  /* ============================================
+     CORES PRIMÁRIAS — Azul Confiança
+     ============================================ */
+  --color-primary-50: #E8F0FE;
+  --color-primary-100: #C5D9FC;
+  --color-primary-200: #9EBEFA;
+  --color-primary-300: #74A1F5;
+  --color-primary-400: #5289F0;
+  --color-primary-500: #1B6FF0;  /* Primary base */
+  --color-primary-600: #1559C2;
+  --color-primary-700: #0F4496;
+  --color-primary-800: #0A316B;
+  --color-primary-900: #061F42;
+
+  /* ============================================
+     CORES SECUNDÁRIAS — Dourado Elegância
+     ============================================ */
+  --color-secondary-50: #FFF8E6;
+  --color-secondary-100: #FFECB3;
+  --color-secondary-200: #FFE080;
+  --color-secondary-300: #FFD54D;
+  --color-secondary-400: #FFC926;
+  --color-secondary-500: #F5A623;  /* Secondary base */
+  --color-secondary-600: #D48E1C;
+  --color-secondary-700: #B37715;
+  --color-secondary-800: #93600F;
+  --color-secondary-900: #734A0A;
+
+  /* ============================================
+     CORES DE APOIO — Verde Sucesso
+     ============================================ */
+  --color-success-50: #E8F5E9;
+  --color-success-100: #C8E6C9;
+  --color-success-300: #81C784;
+  --color-success-500: #4CAF50;
+  --color-success-700: #388E3C;
+
+  /* ============================================
+     CORES DE ALERTA
+     ============================================ */
+  --color-warning-50: #FFF3E0;
+  --color-warning-500: #FF9800;
+  --color-warning-700: #F57C00;
+
+  --color-error-50: #FFEBEE;
+  --color-error-500: #F44336;
+  --color-error-700: #D32F2F;
+
+  --color-info-50: #E3F2FD;
+  --color-info-500: #2196F3;
+  --color-info-700: #1976D2;
+
+  /* ============================================
+     ESCALA DE CINZA — Neutros
+     ============================================ */
+  --color-gray-0: #FFFFFF;
+  --color-gray-50: #F8F9FA;
+  --color-gray-100: #F1F3F5;
+  --color-gray-200: #E9ECEF;
+  --color-gray-300: #DEE2E6;
+  --color-gray-400: #ADB5BD;
+  --color-gray-500: #868E96;
+  --color-gray-600: #6C757D;
+  --color-gray-700: #495057;
+  --color-gray-800: #343A40;
+  --color-gray-900: #212529;
+  --color-gray-1000: #0D1117;
+
+  /* ============================================
+     TIPOGRAFIA
+     ============================================ */
+  --font-family-heading: 'Poppins', 'Inter', system-ui, sans-serif;
+  --font-family-body: 'Inter', 'Open Sans', system-ui, sans-serif;
+  --font-family-accent: 'Playfair Display', Georgia, serif;
+
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-md: 1.125rem;   /* 18px */
+  --font-size-lg: 1.25rem;    /* 20px */
+  --font-size-xl: 1.5rem;     /* 24px */
+  --font-size-2xl: 1.875rem;  /* 30px */
+  --font-size-3xl: 2.25rem;   /* 36px */
+  --font-size-4xl: 3rem;      /* 48px */
+  --font-size-5xl: 3.75rem;   /* 60px */
+
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  --line-height-tight: 1.1;
+  --line-height-heading: 1.25;
+  --line-height-body: 1.6;
+  --line-height-relaxed: 1.75;
+
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.025em;
+  --letter-spacing-wider: 0.05em;
+
+  /* ============================================
+     ESPAÇAMENTO — Grid 8px
+     ============================================ */
+  --space-0: 0;
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+
+  /* ============================================
+     BORDAS
+     ============================================ */
+  --border-radius-none: 0;
+  --border-radius-sm: 0.25rem;   /* 4px */
+  --border-radius-md: 0.5rem;    /* 8px */
+  --border-radius-lg: 0.75rem;   /* 12px */
+  --border-radius-xl: 1rem;      /* 16px */
+  --border-radius-2xl: 1.5rem;   /* 24px */
+  --border-radius-full: 9999px;
+
+  --border-width-thin: 1px;
+  --border-width-medium: 2px;
+  --border-width-thick: 4px;
+
+  /* ============================================
+     SOMBRAS
+     ============================================ */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1), 0 10px 10px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.15);
+  --shadow-inner: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+  --shadow-primary: 0 4px 14px rgba(27, 111, 240, 0.25);
+  --shadow-secondary: 0 4px 14px rgba(245, 166, 35, 0.25);
+
+  /* ============================================
+     TRANSIÇÕES
+     ============================================ */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 350ms ease;
+  --transition-slower: 500ms ease;
+
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ============================================
+     LAYOUT
+     ============================================ */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-2xl: 1536px;
+
+  --header-height: 64px;
+  --header-height-mobile: 56px;
+  --bottom-nav-height: 60px;
+
+  /* ============================================
+     Z-INDEX
+     ============================================ */
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-modal-backdrop: 400;
+  --z-modal: 500;
+  --z-popover: 600;
+  --z-tooltip: 700;
+  --z-toast: 800;
+
+  /* ============================================
+     OPACIDADE
+     ============================================ */
+  --opacity-0: 0;
+  --opacity-10: 0.1;
+  --opacity-20: 0.2;
+  --opacity-30: 0.3;
+  --opacity-40: 0.4;
+  --opacity-50: 0.5;
+  --opacity-60: 0.6;
+  --opacity-70: 0.7;
+  --opacity-80: 0.8;
+  --opacity-90: 0.9;
+  --opacity-100: 1;
+
+  /* ============================================
+     BREAKPOINTS (referência para JS/media)
+     ============================================ */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+}
+
+/* ============================================
+   DARK MODE (preparação futura)
+   ============================================ */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-bg-primary: var(--color-gray-1000);
+    --color-bg-secondary: var(--color-gray-900);
+    --color-text-primary: var(--color-gray-50);
+    --color-text-secondary: var(--color-gray-400);
+  }
+}
+
+/* ============================================
+   ACESSIBILIDADE — Reduced Motion
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: 0ms;
+    --transition-base: 0ms;
+    --transition-slow: 0ms;
+    --transition-slower: 0ms;
+  }
+}
